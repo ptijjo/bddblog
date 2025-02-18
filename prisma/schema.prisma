@@ -19,15 +19,16 @@ enum NotificationType {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String?
-  googleId  String?  @unique
-  pseudo    String   @unique
-  avatar    String   @default("https://vibz.s3.eu-central-1.amazonaws.com/logo/photoProfil.png")
-  role      Role     @default(user)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String    @id @default(cuid())
+  email          String    @unique
+  password       String?
+  googleId       String?   @unique
+  pseudo         String    @unique
+  avatar         String    @default("https://vibz.s3.eu-central-1.amazonaws.com/logo/photoProfil.png")
+  role           Role      @default(user)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  lastConnection DateTime?
 
   // Relations
   posts                Post[]
